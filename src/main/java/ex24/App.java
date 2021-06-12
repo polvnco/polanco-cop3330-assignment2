@@ -10,8 +10,16 @@ import java.util.Scanner;
 
 public class App
 {
-    static void isAnagram()
+
+    public static void main( String[] args)
     {
+         App object = new App();
+         object.isAnagram();
+    }
+
+    public void isAnagram()
+    {
+
         System.out.println("Enter two strings and I'll tell you if they are anagrams:");
 
         System.out.print( "Enter the first string: " );
@@ -48,8 +56,5 @@ public class App
         }
 
     }
-    public static void main( String[] args)
-    {
-        isAnagram();
-    }
+
 }
