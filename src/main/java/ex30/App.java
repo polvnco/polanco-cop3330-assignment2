@@ -15,12 +15,9 @@ public class App {
             System.out.print("Please enter a number between 1 - 12.");
             return;
         }
-        for (int i = 1; i <= tableGenerator; i++) {
-            System.out.format("%4d", i);
-        }
         System.out.println();
 
-        for (int i = 2; i <= tableGenerator; i++) {
+        for (int i = 1; i <= tableGenerator; i++) {
             for (int j = 1; j <= tableGenerator; j++) {
                 System.out.format("%4d", i * j);
             }
