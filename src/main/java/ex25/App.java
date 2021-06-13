@@ -12,11 +12,12 @@ import java.util.regex.Matcher;
 
 public class App {
     public static void main(String[] args) {
-        passwordValidator();
+        App object = new App();
+        object.passwordValidator();
 
     }
 
-    public static void passwordValidator() {
+    public  void passwordValidator() {
 
         String password = callParser();
 
@@ -37,33 +38,35 @@ public class App {
         else if (very_strongPassword) {
             System.out.print("The password " + password + " is a very strong password");
         }
+
+        System.out.println(very_strongPassword);
     }
 
-    public static String callParser() {
+    public  String callParser() {
         System.out.print("ENTER A PASSWORD: ");
         Scanner pw = new Scanner(System.in);
         return pw.nextLine();
     }
 
-    public static boolean vwPassword(String pass) {
+    public  boolean vwPassword(String pass) {
         return pass.length() < 8 && int_check(pass);
     }
-    public static boolean wPassword(String pass) {
+    public  boolean wPassword(String pass) {
         return pass.length() < 8 && char_check(pass);
     }
-    public static boolean sPassword(String pass) {
+    public  boolean sPassword(String pass) {
         if (pass.length() >= 8 && char_check(pass))
         {
             return int_check(pass);
         }
         return true;
     }
-    public static boolean vsPassword(String pass) {
+    public  boolean vsPassword(String pass) {
         return isSpecial(pass);
     }
 
 
-    public static boolean int_check(String pass) {
+    public  boolean int_check(String pass) {
         char c;
         for (int i = 0; i < pass.length(); i++) {
             c = pass.charAt(i);
@@ -73,7 +76,7 @@ public class App {
         }
         return true;
     }
-    public static boolean char_check(String pass) {
+    public  boolean char_check(String pass) {
         char c;
         for (int i = 0; i < pass.length(); i++) {
             c = pass.charAt(i);
@@ -84,7 +87,7 @@ public class App {
         return true;
     }
 
-    public static boolean isSpecial(String pass){
+    public  boolean isSpecial(String pass){
         Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
         Matcher matcher = pattern.matcher(pass);
         return matcher.find();
