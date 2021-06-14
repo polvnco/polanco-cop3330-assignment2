@@ -7,12 +7,22 @@ package ex30;
 import java.util.Scanner;
 
 public class App {
+    int tableSize = 0;
+
     public static void main(String[] args) {
         App object = new App();
         object.multiplicationTable();
     }
 
+    public void setTableSize(int tableSize){
+        this.tableSize = tableSize;
+    }
+    public int getTableSize(){
+        return this.tableSize;
+    }
+
     public void multiplicationTable() {
+        System.out.print("Enter a number between 1 - 12 to generate a multiplication table: ");
         Scanner tableSize = new Scanner(System.in);
         int tableGenerator = tableSize.nextInt();
         if (tableGenerator > 12 || tableGenerator < 1){
