@@ -7,10 +7,22 @@ package ex31;
 import java.util.Scanner;
 
 public class App {
+
+    int total = 0;
+
     public static void main(String[] args) {
         App object = new App();
         object.karvonenHeartRate();
     }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public double getTotal(){
+        return this.total;
+    }
+
     public void karvonenHeartRate(){
         System.out.print("What is your age? ");
         Scanner ageNum = new Scanner(System.in);
