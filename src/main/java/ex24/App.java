@@ -17,7 +17,7 @@ public class App
          object.isAnagram();
     }
 
-    public void isAnagram()
+    public boolean isAnagram()
     {
 
         System.out.println("Enter two strings and I'll tell you if they are anagrams:");
@@ -55,6 +55,7 @@ public class App
             System.out.print("\"" + string1 + "\"" + " and " + "\"" + string2 + "\"" + " are NOT anagrams.");
         }
 
+        return status;
     }
 
 }
