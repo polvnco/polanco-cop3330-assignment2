@@ -7,10 +7,19 @@ package ex29;
 import java.util.Scanner;
 
 public class App {
+    int rate = 0;
+
     public static void main(String[] args) {
 
         App object = new App();
         object.handlingBadInput();
+    }
+
+    public void setRate(int rate){
+        this.rate = rate;
+    }
+    public int getRate(){
+        return this.rate;
     }
 
     public void handlingBadInput() {
