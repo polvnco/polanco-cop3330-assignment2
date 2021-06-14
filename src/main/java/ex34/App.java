@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Christopher Polanco
+ */
 package ex34;
 
 import java.util.ArrayList;
@@ -5,12 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
         App employ = new App();
         employ.currentEmployees();
     }
 
-    private void currentEmployees(){
+    public void currentEmployees(){
         var emp = new ArrayList<>(List.of("John Smith", "Jackie Jackson",
                 "Chris Jones", "Amanda Cullen", "Jeremy Goodwin"));
         printEmployees(emp);
