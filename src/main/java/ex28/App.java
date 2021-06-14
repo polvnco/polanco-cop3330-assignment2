@@ -1,13 +1,27 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Christopher Polanco
+ */
 package ex28;
 
 import java.util.Scanner;
 
 public class App {
 
+    int total = 0;
+
     public static void main( String[] args)
     {
         App object = new App();
         object.addingNumbers();
+    }
+
+    public int getTotal(){
+        return this.total;
+    }
+
+    public void setTotal(int total){
+        this.total = total;
     }
 
     public void addingNumbers(){
