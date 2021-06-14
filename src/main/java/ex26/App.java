@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 public class App {
 
+    double balance = 0.0 ;
+    double interestRate = 0.0;
+    double payment = 0.0;
 
     public static void main(String[] args) {
 
@@ -16,7 +19,30 @@ public class App {
 
     }
 
-    public double callBalance() {
+    public void setBalance( double myBalance){
+        this.balance = myBalance;
+    }
+
+    public void setInterestRate( double interestRate){
+        this.interestRate = interestRate;
+    }
+
+    public double getBalance(){
+        return this.balance;
+    }
+
+    public double getInterestRate(){
+        return this.interestRate;
+    }
+
+    public void setPayment( double payment){
+        this.payment = payment;
+    }
+    public double getPayment(){
+        return this.payment;
+    }
+
+    public double callBalance( ) {
         Scanner balance = new Scanner(System.in);
         System.out.print("What is your balance? ");
         return balance.nextDouble();
