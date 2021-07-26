@@ -8,66 +8,63 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class App {
+
     //main is for testing to make the program work
     public static void main(String[] args) {
-        App validateinput = new App();
-        validateinput.validateInput();
+        String firstName;
+        String lastName;
+        String zipCode;
+        String ID;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the first name: ");
+        firstName = input.nextLine();
+        System.out.println("Enter the last name: ");
+        lastName = input.nextLine();
+        System.out.println("Enter the ZIP code: ");
+        zipCode = input.nextLine();
+        System.out.println("Enter the employee ID: ");
+        ID = input.nextLine();
+
+        String error = validateInput(firstName, lastName, zipCode, ID);
+        System.out.println(error);
     }
 
-    public void validateInput(){
-        userFirstName();
-        userLastName();
-        userZipCode();
-        userEmpID();
-    }
-
-    public void userFirstName() {
-        System.out.print("Enter first name: ");
-        Scanner fName = new Scanner(System.in);
-        if (fName.equals("")) {
-            System.out.println("First name required.\nEnter first name:");
+    public static String validateInput(String firstName, String lastName, String zipCode, String ID) {
+        String error = "";
+        if (firstName.isEmpty()) {
+            error += "This field is empty\n";
+        } else if (firstName.length() < 2) {
+            error += "The first name must be at least 2 characters long.\n";
         }
-        fName.nextLine();
-    }
-
-    public void userLastName() {
-        System.out.print("Enter last name: ");
-        Scanner lName = new Scanner(System.in);
-        lName.nextLine();
-    }
-
-    public void userZipCode() {
-        System.out.print("Enter the zip code: ");
-        Scanner zip = new Scanner(System.in);
-        String zipCode = zip.nextLine();
-        //noinspection LoopStatementThatDoesntLoop * introduce while statement
-        for (int i = 0; i < zipCode.length(); i++) {
-            if (Character.isDigit(zipCode.charAt(i))) {
-                return;
-            } else if (Character.isWhitespace(zipCode.charAt(i))) {
-                System.out.println("Enter the zip code:");
-                zip.next();
-                return;
-            } else {
-                System.out.print("The zip code must contain numeric values only.\nEnter the zip code: ");
-                zip.next();
-                return;
-            }
+        if (lastName.isEmpty()) {
+            error += "This field is empty\n";
+        } else if (lastName.length() < 2) {
+            error += "The last name must be at least 2 characters long.\n";
         }
-    }
-
-    public void userEmpID() {
-        System.out.print("Enter an employee ID: ");
-        Scanner id = new Scanner(System.in);
-        String empID = id.nextLine();
-        String flag;
-        if (!Pattern.matches("[a-zA-Z]{2}[-][0-9]{4}", empID)) {
-            flag = "The employee ID must be in the format of AA-1234.";
-            System.out.println(flag);
+        if (zipCode.isEmpty()) {
+            error += "This field is empty\n";
+        } else if (!isDigit(zipCode)) {
+            error += "The zipcode must be an integer\n";
+        } else if (zipCode.length() != 5) {
+            error += "The zipcode must be a 5 digit number\n";
         }
-        else
-            return;
+        if (!validateID(ID)) {
+            error += "The ID entered is not valid\n";
+        }
+        if (error.isEmpty()) {
+            error += "There were no errors found\n.";
+        }
+        return error;
     }
 
+    public static boolean isDigit(String string) {
+        return ((string != null) && (!string.equals("") && (string.matches("^[0-9*#+.]+$"))));
     }
+
+    public static boolean validateID(String ID) {
+        // AA-1234
+        return ID.matches("^([A-Za-z]){2}-([0-9]){4}$");
+    }
+
+}
 
